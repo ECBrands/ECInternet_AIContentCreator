@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="ai_content_creator" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+			<class>separator-top</class>
+			<label>AI Content Creator</label>
+			<tab>ecinternet</tab>
+			<resource>ECInternet_AIContentCreator::settings</resource>
+			<group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+				<label>General Configuration</label>
+				<field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Enable module</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="debug_logging" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Enable debug logging</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+			<group id="openai" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+				<label>OpenAI Configuration</label>
+				<field id="openai_api_key" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>OpenAI API Key</label>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+				</field>
+				<field id="openai_model" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>OpenAI Model</label>
+					<source_model>ECInternet\AIContentCreator\Model\Config\Source\ChatGPTModel</source_model>
+				</field>
+				<field id="openai_product_attributes" translate="label" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>OpenAI Product Attributes</label>
+					<source_model>ECInternet\AIContentCreator\Model\Config\Source\AllowedProductAttribute</source_model>
+				</field>
+				<depends>
+					<field id="ai_content_creator/general/enable">1</field>
+				</depends>
+			</group>
+		</section>
+	</system>
+</config>

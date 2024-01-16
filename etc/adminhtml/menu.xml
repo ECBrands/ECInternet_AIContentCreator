@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="ECInternet_AIContentCreator::menu"
+		     title="AI Content Creator"
+		     translate="title"
+		     module="ECInternet_AIContentCreator"
+		     sortOrder="200"
+		     parent="ECInternet_Base::base"
+		     resource="ECInternet_AIContentCreator::menu"
+		/>
+
+		<add id="ECInternet_AIContentCreator::settings"
+		     title="Settings"
+		     translate="title"
+		     module="ECInternet_AIContentCreator"
+		     parent="ECInternet_AIContentCreator::menu"
+		     sortOrder="1"
+		     action="adminhtml/system_config/edit/section/ai_content_creator"
+		     resource="ECInternet_AIContentCreator::settings"
+		/>
+	</menu>
+</config>
